@@ -34,8 +34,11 @@ class LoanSimulator extends Command
             $this->error('No account numbers have been provided!');
         }
 
-        $token = User::firstWhere('is_admin', true)->createToken('api-simulator-token', ['loans:view'])->plainTextToken;
-        $reportFile = fopen(public_path('loans-api-'.time().'.txt'), 'a');
+        $adminUser = User::factory()->admin()->create();
+        $token = $adminUser->createToken('api-simulator-token', ['loans:view'])->plainTextToken;
+
+        $fileName = 'loans-api-'.time().'.txt';
+        $reportFile = fopen(public_path($fileName), 'a');
 
         foreach ($accounts as $account){
             $response = Http::withToken($token)->withHeaders([
@@ -45,11 +48,11 @@ class LoanSimulator extends Command
                 'account_number' => trim($account)
             ]);
 
-            fwrite($reportFile, $account . " : ".$response->body()."\n");
+            fwrite($reportFile, "ACCOUNT #: {$account} => RESPONSE : ".$response->body()."\n");
         }
 
         fclose($reportFile);
 
-        $this->info('Loan Fetch Simulation Completed!');
+        $this->info("Loan Fetch Simulation Completed ans saved in public/{$fileName}");
     }
 }
