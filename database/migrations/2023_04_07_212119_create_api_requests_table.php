@@ -16,7 +16,7 @@ return new class extends Migration
             $table->ipAddress('source_ip');
             $table->enum('type', ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])->index();
             $table->json('parameters');
-            $table->enum('status', ['positive', 'negative'])->index();
+            $table->enum('status', ['positive', 'negative', 'invalid'])->index();
             $table->timestamps();
         });
     }

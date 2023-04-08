@@ -19,13 +19,9 @@ class FailedValidationFactory extends Factory
     {
         return [
             'api_request_id' => ApiRequest::factory(),
-            'messages' => json_encode([
-                "message" => "The account number must be a number. (and 2 more errors)",
-                "errors" => [
-                    "account_number" => [
-                        "The account number must be a string.",
-                    ]
-                ]
+            'errors' => json_encode([
+                "The account number must be a number.",
+                "The account number must be 10 digits.",
             ])
         ];
     }

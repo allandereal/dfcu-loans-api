@@ -23,7 +23,7 @@ class ApiRequestFactory extends Factory
             'source_ip' => $this->faker->ipv4(),
             'type' => $this->faker->randomElement(['GET', 'POST', 'PUT', 'PATCH', 'DELETE']),
             'parameters' => json_encode(['account_number' => intval(implode('', $numbers))]),
-            'status' => $this->faker->randomElement(['positive', 'negative']),
+            'status' => $this->faker->randomElement(['positive', 'negative', 'invalid']),
         ];
     }
 
@@ -42,6 +42,17 @@ class ApiRequestFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'status' => 'negative',
+                'type' => 'GET',
+            ];
+        });
+    }
+
+    public function invalid(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'parameters' => json_encode(['account_number' => $this->faker->randomNumber(9)]),
+                'status' => $this->faker->randomElement(['positive', 'negative', 'invalid']),
                 'type' => 'GET',
             ];
         });

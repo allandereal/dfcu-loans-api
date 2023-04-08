@@ -6,6 +6,7 @@ use App\Models\ApiRequest;
 use App\Models\FailedValidation;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Validator;
 
 class GetLoansRequest extends FormRequest
@@ -34,10 +35,13 @@ class GetLoansRequest extends FormRequest
     {
         $validator->after(function (Validator $validator) {
             if ($validator->failed()) {
-                $apiRequest = ApiRequest::addNew('negative');
+                $apiRequest = ApiRequest::addNew('invalid');
+                Log::debug('kk:', $validator->errors()->toArray());
                 FailedValidation::create([
                     'api_request_id' => $apiRequest->id,
-                    'messages' => json_encode($validator->errors()->toArray())
+                    'errors' => json_encode(
+                        $validator->errors()->toArray()['account_number'] ?? []
+                    )
                 ]);
             }
         });

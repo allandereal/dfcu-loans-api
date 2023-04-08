@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -17,7 +18,7 @@ class ApiRequest extends Model
         'status',
     ];
 
-    public static function addNew($status)
+    public static function addNew(string $status): ApiRequest
     {
         return ApiRequest::create([
             'source_ip' => request()->ip(),
@@ -30,5 +31,10 @@ class ApiRequest extends Model
     public function failedValidation(): HasOne
     {
         return $this->hasOne(FailedValidation::class);
+    }
+
+    public function scopeGroupedByStatus(Builder $query): Builder
+    {
+        return $query->groupBy('status')->selectRaw("status, count(*) as number");
     }
 }

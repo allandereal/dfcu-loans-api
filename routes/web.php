@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+
+Route::middleware('auth')
+    ->get('admin/api-performance', [AdminDashboardController::class, 'index'])
+    ->name('admin.dashboard');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return to_route('admin.dashboard');
+    })->name('dashboard');
+    Route::get('/', function () {
+        return to_route('admin.dashboard');
+    })->name('home');
 });

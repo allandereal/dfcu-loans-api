@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         ApiRequest::factory(5)->create();
         ApiRequest::factory(5)->positive()->create();
         ApiRequest::factory(5)->negative()->create();
+        ApiRequest::factory(5)->invalid()->create();
 
         FailedValidation::factory(10)->create();
     }

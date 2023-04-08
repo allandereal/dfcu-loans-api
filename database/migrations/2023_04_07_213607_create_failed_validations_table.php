@@ -18,7 +18,7 @@ return new class extends Migration
                 ->constrained('api_requests')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->json('messages');
+            $table->json('errors');
             $table->timestamps();
         });
     }

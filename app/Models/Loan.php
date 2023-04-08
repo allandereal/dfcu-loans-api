@@ -26,7 +26,7 @@ class Loan extends Model
         return $this->belongsTo(Account::class);
     }
 
-    public function scopeOutstanding(Builder $query)
+    public function scopeOutstanding(Builder $query): Builder
     {
         return $query->where('outstanding_amount', '>', 0);
     }
