@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(1)->admin()->create();
+        $admins = User::factory(1)->admin()->create();
+        dump('TEST API TOKEN: '.$admins->first()->createToken('api-admin-access', ['loans:view'])->plainTextToken);
+
         User::factory(2)->create();
 
         Account::factory(10)->create();
