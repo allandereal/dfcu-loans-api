@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::/*middleware('auth:sanctum')->*/get('/outstanding-loans', [LoanController::class, 'index']);
+Route::middleware('auth:sanctum')->get('/outstanding-loans', [LoanController::class, 'index']);
