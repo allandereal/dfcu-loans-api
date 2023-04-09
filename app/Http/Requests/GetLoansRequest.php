@@ -46,4 +46,11 @@ class GetLoansRequest extends FormRequest
             }
         });
     }
+
+    public function messages(): array
+    {
+        return [
+            'account_number.exists' => 'Account Number does not exist in our records',
+        ];
+    }
 }
