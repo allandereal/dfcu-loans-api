@@ -17,14 +17,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $admins = User::factory(1)->create([
+        User::factory(1)->create([
             'email' => 'admin@api.dfcubank.com',
-            'name' => 'API Admin'
+            'name' => 'ApiAdmin User'
         ]);
-        dump('TEST API TOKEN: '.$admins->first()->createToken('api-admin-access', ['loans:view'])->plainTextToken);
 
+        //models for API testing
+        //account with outstanding loans
+        Account::factory()->has(Loan::factory()->count(2), 'outstandingLoans')
+            ->create([
+                'number' => 1000000001
+            ]);
+        //account with no outstanding loans
+        Account::factory()->has(Loan::factory()->paidOff()->count(2), 'outstandingLoans')
+            ->create([
+                'number' => 1000000002
+            ]);
+        //account with no loans
+        Account::factory()->create([
+            'number' => 1000000003
+        ]);
+
+        //other factories
         User::factory(2)->create();
-
         Account::factory(10)->create();
 
         Loan::factory(10)->create();
