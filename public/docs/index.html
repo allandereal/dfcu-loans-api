@@ -136,7 +136,7 @@ Otherwise, the request will fail with an error code such as 400, 402, 500 and a 
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"account_number\": \"7828946461\"
+    \"account_number\": \"4772912647\"
 }"
 </code></pre></div>
 
@@ -152,7 +152,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'account_number' =&gt; '7828946461',
+            'account_number' =&gt; '4772912647',
         ],
     ]
 );
@@ -172,7 +172,7 @@ const headers = {
 };
 
 let body = {
-    "account_number": "7828946461"
+    "account_number": "4772912647"
 };
 
 fetch(url, {
@@ -188,7 +188,7 @@ import json
 
 url = 'http://localhost:8000/api/outstanding-loans'
 payload = {
-    "account_number": "7828946461"
+    "account_number": "4772912647"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -208,15 +208,14 @@ response.json()</code></pre></div>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">[
-    {
-        &quot;amount_disbursed&quot;: 9007000,
-        &quot;outstanding_amount&quot;: 8976000,
-        &quot;date_disbursed&quot;: &quot;2018-05-09 10:10:57&quot;,
-        &quot;due_date&quot;: &quot;2031-07-09 10:10:57&quot;,
-        &quot;created_at&quot;: &quot;2023-04-09T10:10:57.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-04-09T10:10:57.000000Z&quot;,
-        &quot;account_number&quot;: 9185407623
-    }
+{
+&quot;amount_disbursed&quot;: 9007000,
+&quot;outstanding_amount&quot;: 8976000,
+&quot;date_disbursed&quot;: &quot;2018-05-09 10:10:57&quot;,
+&quot;due_date&quot;: &quot;2031-07-09 10:10:57&quot;,
+&quot;created_at&quot;: &quot;2023-04-09T10:10:57.000000Z&quot;,
+&quot;updated_at&quot;: &quot;2023-04-09T10:10:57.000000Z&quot;,
+}
 ]</code>
  </pre>
             <blockquote>
@@ -313,10 +312,10 @@ response.json()</code></pre></div>
  &nbsp;
                 <input type="text" style="display: none"
                name="account_number"                data-endpoint="POSTapi-outstanding-loans"
-               value="7828946461"
+               value="4772912647"
                data-component="body">
     <br>
-<p>Must be 10 digits. Example: <code>7828946461</code></p>
+<p>Must be 10 digits. Example: <code>4772912647</code></p>
         </div>
         </form>
 
@@ -324,42 +323,42 @@ response.json()</code></pre></div>
     <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
     <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>amount_disbursed</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+&nbsp;
  &nbsp;
 <br>
 <p>The loan amount that was disbursed.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>outstanding_amount</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+&nbsp;
  &nbsp;
 <br>
 <p>The amount pending to complete loan payment.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date_disbursed</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+&nbsp;
  &nbsp;
 <br>
 <p>The date when the loan was disbursed.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+&nbsp;
  &nbsp;
 <br>
 <p>The date when the loan is supposed to have been paid off.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>created_at</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+&nbsp;
  &nbsp;
 <br>
 <p>The date when the loan was disbursed.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>updated_at</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+&nbsp;
  &nbsp;
 <br>
 <p>The date when the loan was updated.</p>

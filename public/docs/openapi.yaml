@@ -24,20 +24,10 @@ paths:
         200:
           description: 'Found outstanding Loans'
           content:
-            application/json:
+            text/plain:
               schema:
-                type: array
-                items:
-                  type: object
-                example:
-                  -
-                    amount_disbursed: 9007000
-                    outstanding_amount: 8976000
-                    date_disbursed: '2018-05-09 10:10:57'
-                    due_date: '2031-07-09 10:10:57'
-                    created_at: '2023-04-09T10:10:57.000000Z'
-                    updated_at: '2023-04-09T10:10:57.000000Z'
-                    account_number: 9185407623
+                type: string
+                example: "[\n{\n\"amount_disbursed\": 9007000,\n\"outstanding_amount\": 8976000,\n\"date_disbursed\": \"2018-05-09 10:10:57\",\n\"due_date\": \"2031-07-09 10:10:57\",\n\"created_at\": \"2023-04-09T10:10:57.000000Z\",\n\"updated_at\": \"2023-04-09T10:10:57.000000Z\",\n}\n]"
         422:
           description: 'Account Number Validation errors'
           content:
@@ -74,7 +64,7 @@ paths:
                 account_number:
                   type: string
                   description: 'Must be 10 digits.'
-                  example: '7828946461'
+                  example: '4772912647'
               required:
                 - account_number
 tags:

@@ -22,13 +22,12 @@ class LoanController extends Controller
      *
      * @response 200 scenario="Found outstanding Loans" [
             {
-            "amount_disbursed": 9007000,
-            "outstanding_amount": 8976000,
-            "date_disbursed": "2018-05-09 10:10:57",
-            "due_date": "2031-07-09 10:10:57",
-            "created_at": "2023-04-09T10:10:57.000000Z",
-            "updated_at": "2023-04-09T10:10:57.000000Z",
-            "account_number": 9185407623
+                "amount_disbursed": 9007000,
+                "outstanding_amount": 8976000,
+                "date_disbursed": "2018-05-09 10:10:57",
+                "due_date": "2031-07-09 10:10:57",
+                "created_at": "2023-04-09T10:10:57.000000Z",
+                "updated_at": "2023-04-09T10:10:57.000000Z",
             }
         ]
      * @response 422 scenario="Account Number Validation errors" {

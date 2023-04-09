@@ -31,11 +31,11 @@ endpoints:
         name: account_number
         description: 'Must be 10 digits.'
         required: true
-        example: '7828946461'
+        example: '4772912647'
         type: string
         custom: []
     cleanBodyParameters:
-      account_number: '7828946461'
+      account_number: '4772912647'
     fileParameters: []
     responses:
       -
@@ -49,7 +49,6 @@ endpoints:
           "due_date": "2031-07-09 10:10:57",
           "created_at": "2023-04-09T10:10:57.000000Z",
           "updated_at": "2023-04-09T10:10:57.000000Z",
-          "account_number": 9185407623
           }
           ]
         headers: []
@@ -71,47 +70,47 @@ endpoints:
         description: 'The loan amount that was disbursed.'
         required: false
         example: null
-        type: integer
+        type: ''
         custom: []
       outstanding_amount:
         name: outstanding_amount
         description: 'The amount pending to complete loan payment.'
         required: false
         example: null
-        type: integer
+        type: ''
         custom: []
       date_disbursed:
         name: date_disbursed
         description: 'The date when the loan was disbursed.'
         required: false
         example: null
-        type: string
+        type: ''
         custom: []
       due_date:
         name: due_date
         description: 'The date when the loan is supposed to have been paid off.'
         required: false
         example: null
-        type: string
+        type: ''
         custom: []
       created_at:
         name: created_at
         description: 'The date when the loan was disbursed.'
         required: false
         example: null
-        type: string
+        type: ''
         custom: []
       updated_at:
         name: updated_at
         description: 'The date when the loan was updated.'
         required: false
         example: null
-        type: string
+        type: ''
         custom: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 5Dd6vab3P6a4kVc8ZegEh1f'
+      - 'Bearer gaPvb46e1fVc5ahE3DkZ86d'
     controller: null
     method: null
     route: null
