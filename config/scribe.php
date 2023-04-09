@@ -14,7 +14,7 @@ return [
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => '',
+    'description' => 'An API to check and view outstanding loans per user account',
 
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
@@ -247,7 +247,7 @@ return [
          * Any extra authentication-related info for your users. For instance, you can describe how to find or generate their auth credentials.
          * Markdown and HTML are supported.
          */
-        'extra_info' => 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.',
+        'extra_info' => 'You can retrieve your token by visiting your <a href="/dashboard">dashboard</a> and clicking <b>Generate API token</b>.',
     ],
 
     /*
@@ -269,8 +269,8 @@ INTRO
      */
     'example_languages' => [
         'bash',
-        'javascript',
         'php',
+        'javascript',
         'python',
     ],
 

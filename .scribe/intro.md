@@ -1,6 +1,6 @@
 # Introduction
 
-
+An API to check and view outstanding loans per user account
 
 <aside>
     <strong>Base URL</strong>: <code>http://localhost:8000</code>

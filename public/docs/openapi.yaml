@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: 'DFCU Loans API'
-  description: ''
+  description: 'An API to check and view outstanding loans per user account'
   version: 1.0.0
 servers:
   -
@@ -9,9 +9,9 @@ servers:
 paths:
   /api/outstanding-loans:
     post:
-      summary: 'Display a listing of the resource.'
-      operationId: displayAListingOfTheResource
-      description: ''
+      summary: 'Outstanding Loans'
+      operationId: outstandingLoans
+      description: "This endpoint allows you to fetch all outstanding Loans attached to an account number.\n\nCheck that the service is up. If everything is okay, you'll get a 200 OK response.\nOtherwise, the request will fail with an error code such as 400, 402, 500 and a response listing the error message."
       parameters:
         -
           in: header
@@ -20,7 +20,49 @@ paths:
           example: 'Bearer {ACCESS_TOKEN}'
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: 'Found outstanding Loans'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 222
+                    amount_disbursed: 9007000
+                    outstanding_amount: 8976000
+                    date_disbursed: '2018-05-09 10:10:57'
+                    due_date: '2031-07-09 10:10:57'
+                    created_at: '2023-04-09T10:10:57.000000Z'
+                    updated_at: '2023-04-09T10:10:57.000000Z'
+                    account_number: 9185407623
+        422:
+          description: 'Account Number Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The account number field must be 10 digits.'
+                  errors:
+                    account_number:
+                      - 'The account number field must be 10 digits.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The account number field must be 10 digits.'
+                  errors:
+                    type: object
+                    properties:
+                      account_number:
+                        type: array
+                        example:
+                          - 'The account number field must be 10 digits.'
+                        items:
+                          type: string
       tags:
         - Endpoints
       requestBody:
@@ -33,7 +75,7 @@ paths:
                 account_number:
                   type: string
                   description: 'Must be 10 digits.'
-                  example: '3970119105'
+                  example: '3999786832'
               required:
                 - account_number
 tags:

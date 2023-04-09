@@ -10,8 +10,8 @@
     ],
     "info": {
         "name": "DFCU Loans API",
-        "_postman_id": "b3d14516-37a8-44b5-95b2-81028dfbc283",
-        "description": "",
+        "_postman_id": "765db9d0-4114-4b18-b77c-49dd306faa08",
+        "description": "An API to check and view outstanding loans per user account",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Outstanding Loans",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -41,11 +41,24 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"account_number\":\"3970119105\"}"
+                            "raw": "{\"account_number\":\"3999786832\"}"
                         },
-                        "description": ""
+                        "description": "This endpoint allows you to fetch all outstanding Loans attached to an account number.\n\nCheck that the service is up. If everything is okay, you'll get a 200 OK response.\nOtherwise, the request will fail with an error code such as 400, 402, 500 and a response listing the error message."
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n{\n\"id\": 222,\n\"amount_disbursed\": 9007000,\n\"outstanding_amount\": 8976000,\n\"date_disbursed\": \"2018-05-09 10:10:57\",\n\"due_date\": \"2031-07-09 10:10:57\",\n\"created_at\": \"2023-04-09T10:10:57.000000Z\",\n\"updated_at\": \"2023-04-09T10:10:57.000000Z\",\n\"account_number\": 9185407623\n}\n]",
+                            "name": "Found outstanding Loans"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The account number field must be 10 digits.\",\n\"errors\": {\"account_number\": [\"The account number field must be 10 digits.\"]}\n}",
+                            "name": "Account Number Validation errors"
+                        }
+                    ]
                 }
             ]
         }

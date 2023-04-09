@@ -22,8 +22,8 @@
     <style id="language-style">
         /* starts out as display none and is replaced with js later  */
                     body .content .bash-example code { display: none; }
-                    body .content .javascript-example code { display: none; }
                     body .content .php-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
                     body .content .python-example code { display: none; }
             </style>
 
@@ -38,7 +38,7 @@
 
 </head>
 
-<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
+<body data-languages="[&quot;bash&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;]">
 
 <a href="#" id="nav-button">
     <span>
@@ -51,8 +51,8 @@
     
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
-                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                             <button type="button" class="lang-button" data-language-name="php">php</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                             <button type="button" class="lang-button" data-language-name="python">python</button>
                     </div>
     
@@ -77,7 +77,7 @@
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-outstanding-loans">
-                                <a href="#endpoints-POSTapi-outstanding-loans">Display a listing of the resource.</a>
+                                <a href="#endpoints-POSTapi-outstanding-loans">Outstanding Loans</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -98,6 +98,7 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
+<p>An API to check and view outstanding loans per user account</p>
 <aside>
     <strong>Base URL</strong>: <code>http://localhost:8000</code>
 </aside>
@@ -108,19 +109,21 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {ACCESS_TOKEN}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
-<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
+<p>You can retrieve your token by visiting your <a href="/dashboard">dashboard</a> and clicking <b>Generate API token</b>.</p>
 
         <h1 id="endpoints">Endpoints</h1>
 
     
 
-                                <h2 id="endpoints-POSTapi-outstanding-loans">Display a listing of the resource.</h2>
+                                <h2 id="endpoints-POSTapi-outstanding-loans">Outstanding Loans</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>This endpoint allows you to fetch all outstanding Loans attached to an account number.</p>
+<p>Check that the service is up. If everything is okay, you'll get a 200 OK response.
+Otherwise, the request will fail with an error code such as 400, 402, 500 and a response listing the error message.</p>
 
 <span id="example-requests-POSTapi-outstanding-loans">
 <blockquote>Example request:</blockquote>
@@ -133,9 +136,28 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"account_number\": \"3970119105\"
+    \"account_number\": \"3999786832\"
 }"
 </code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:8000/api/outstanding-loans',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'account_number' =&gt; '3999786832',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 
 <div class="javascript-example">
@@ -150,7 +172,7 @@ const headers = {
 };
 
 let body = {
-    "account_number": "3970119105"
+    "account_number": "3999786832"
 };
 
 fetch(url, {
@@ -160,32 +182,13 @@ fetch(url, {
 }).then(response =&gt; response.json());</code></pre></div>
 
 
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://localhost:8000/api/outstanding-loans',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'account_number' =&gt; '3970119105',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
 <div class="python-example">
     <pre><code class="language-python">import requests
 import json
 
 url = 'http://localhost:8000/api/outstanding-loans'
 payload = {
-    "account_number": "3970119105"
+    "account_number": "3999786832"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -199,7 +202,39 @@ response.json()</code></pre></div>
 </span>
 
 <span id="example-responses-POSTapi-outstanding-loans">
-</span>
+            <blockquote>
+            <p>Example response (200, Found outstanding Loans):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 222,
+        &quot;amount_disbursed&quot;: 9007000,
+        &quot;outstanding_amount&quot;: 8976000,
+        &quot;date_disbursed&quot;: &quot;2018-05-09 10:10:57&quot;,
+        &quot;due_date&quot;: &quot;2031-07-09 10:10:57&quot;,
+        &quot;created_at&quot;: &quot;2023-04-09T10:10:57.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-04-09T10:10:57.000000Z&quot;,
+        &quot;account_number&quot;: 9185407623
+    }
+]</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Account Number Validation errors):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The account number field must be 10 digits.&quot;,
+    &quot;errors&quot;: {
+        &quot;account_number&quot;: [
+            &quot;The account number field must be 10 digits.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-outstanding-loans" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-outstanding-loans"></span>:
@@ -279,22 +314,66 @@ response.json()</code></pre></div>
  &nbsp;
                 <input type="text" style="display: none"
                name="account_number"                data-endpoint="POSTapi-outstanding-loans"
-               value="3970119105"
+               value="3999786832"
                data-component="body">
     <br>
-<p>Must be 10 digits. Example: <code>3970119105</code></p>
+<p>Must be 10 digits. Example: <code>3999786832</code></p>
         </div>
         </form>
 
-            
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+    <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>amount_disbursed</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+<br>
+<p>The loan amount that was disbursed.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>outstanding_amount</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+<br>
+<p>The amount pending to complete loan payment.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date_disbursed</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>The date when the loan was disbursed.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>due_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>The date when the loan is supposed to have been paid off.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>created_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>The date when the loan was disbursed.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>updated_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>The date when the loan was updated.</p>
+        </div>
+                
 
         
     </div>
     <div class="dark-box">
                     <div class="lang-selector">
                                                         <button type="button" class="lang-button" data-language-name="bash">bash</button>
-                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                                         <button type="button" class="lang-button" data-language-name="php">php</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                                         <button type="button" class="lang-button" data-language-name="python">python</button>
                             </div>
             </div>

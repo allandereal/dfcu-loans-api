@@ -12,8 +12,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: ''
+      title: 'Outstanding Loans'
+      description: |-
+        This endpoint allows you to fetch all outstanding Loans attached to an account number.
+
+        Check that the service is up. If everything is okay, you'll get a 200 OK response.
+        Otherwise, the request will fail with an error code such as 400, 402, 500 and a response listing the error message.
       authenticated: true
       custom: []
     headers:
@@ -29,18 +33,88 @@ endpoints:
         name: account_number
         description: 'Must be 10 digits.'
         required: true
-        example: '3970119105'
+        example: '3999786832'
         type: string
         custom: []
     cleanBodyParameters:
-      account_number: '3970119105'
+      account_number: '3999786832'
     fileParameters: []
-    responses: []
-    responseFields: []
+    responses:
+      -
+        status: 200
+        content: |-
+          [
+          {
+          "id": 222,
+          "amount_disbursed": 9007000,
+          "outstanding_amount": 8976000,
+          "date_disbursed": "2018-05-09 10:10:57",
+          "due_date": "2031-07-09 10:10:57",
+          "created_at": "2023-04-09T10:10:57.000000Z",
+          "updated_at": "2023-04-09T10:10:57.000000Z",
+          "account_number": 9185407623
+          }
+          ]
+        headers: []
+        description: 'Found outstanding Loans'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The account number field must be 10 digits.",
+          "errors": {"account_number": ["The account number field must be 10 digits."]}
+          }
+        headers: []
+        description: 'Account Number Validation errors'
+        custom: []
+    responseFields:
+      amount_disbursed:
+        name: amount_disbursed
+        description: 'The loan amount that was disbursed.'
+        required: false
+        example: null
+        type: integer
+        custom: []
+      outstanding_amount:
+        name: outstanding_amount
+        description: 'The amount pending to complete loan payment.'
+        required: false
+        example: null
+        type: integer
+        custom: []
+      date_disbursed:
+        name: date_disbursed
+        description: 'The date when the loan was disbursed.'
+        required: false
+        example: null
+        type: string
+        custom: []
+      due_date:
+        name: due_date
+        description: 'The date when the loan is supposed to have been paid off.'
+        required: false
+        example: null
+        type: string
+        custom: []
+      created_at:
+        name: created_at
+        description: 'The date when the loan was disbursed.'
+        required: false
+        example: null
+        type: string
+        custom: []
+      updated_at:
+        name: updated_at
+        description: 'The date when the loan was updated.'
+        required: false
+        example: null
+        type: string
+        custom: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 5gcvad1h8VDeba6E46P3Zkf'
+      - 'Bearer aVDh1865vEdZa6e4bckf3gP'
     controller: null
     method: null
     route: null
