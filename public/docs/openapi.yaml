@@ -64,7 +64,7 @@ paths:
                 account_number:
                   type: string
                   description: 'Must be 10 digits.'
-                  example: '4755959177'
+                  example: '4531366620'
               required:
                 - account_number
 tags:

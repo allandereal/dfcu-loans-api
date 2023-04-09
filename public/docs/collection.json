@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DFCU Loans API",
-        "_postman_id": "a3868abc-9804-431c-a5ef-abecf9a19d7c",
+        "_postman_id": "166f7c90-a60a-4b41-95ec-57f477bfbc3c",
         "description": "An API to check and view outstanding loans per user account",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"account_number\":\"4755959177\"}"
+                            "raw": "{\"account_number\":\"4531366620\"}"
                         },
                         "description": "This endpoint allows you to fetch all outstanding Loans attached to an account number.\n\nCheck that the service is up. If everything is okay, you'll get a 200 OK response.\nOtherwise, the request will fail with an error code such as 400, 422, 500 and a response listing the error message.\n<aside class=\"info\"><b>You can use these test account numbers.<\/b><br>\n1000000001 => Returns outstanding loans<br>\n1000000002 => Return no outstanding loan<\/aside>"
                     },

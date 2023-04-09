@@ -34,11 +34,11 @@ endpoints:
         name: account_number
         description: 'Must be 10 digits.'
         required: true
-        example: '4755959177'
+        example: '4531366620'
         type: string
         custom: []
     cleanBodyParameters:
-      account_number: '4755959177'
+      account_number: '4531366620'
     fileParameters: []
     responses:
       -
@@ -113,7 +113,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Z6VEvgh8a4D5bc6Pdaf1ke3'
+      - 'Bearer DakV4v8gah5Z1e36fd6PcbE'
     controller: null
     method: null
     route: null
