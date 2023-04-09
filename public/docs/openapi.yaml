@@ -31,7 +31,6 @@ paths:
                   type: object
                 example:
                   -
-                    id: 222
                     amount_disbursed: 9007000
                     outstanding_amount: 8976000
                     date_disbursed: '2018-05-09 10:10:57'
@@ -75,7 +74,7 @@ paths:
                 account_number:
                   type: string
                   description: 'Must be 10 digits.'
-                  example: '3999786832'
+                  example: '7828946461'
               required:
                 - account_number
 tags:

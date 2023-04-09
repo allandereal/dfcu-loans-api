@@ -136,7 +136,7 @@ Otherwise, the request will fail with an error code such as 400, 402, 500 and a 
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"account_number\": \"3999786832\"
+    \"account_number\": \"7828946461\"
 }"
 </code></pre></div>
 
@@ -152,7 +152,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'account_number' =&gt; '3999786832',
+            'account_number' =&gt; '7828946461',
         ],
     ]
 );
@@ -172,7 +172,7 @@ const headers = {
 };
 
 let body = {
-    "account_number": "3999786832"
+    "account_number": "7828946461"
 };
 
 fetch(url, {
@@ -188,7 +188,7 @@ import json
 
 url = 'http://localhost:8000/api/outstanding-loans'
 payload = {
-    "account_number": "3999786832"
+    "account_number": "7828946461"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -209,7 +209,6 @@ response.json()</code></pre></div>
 
 <code class="language-json" style="max-height: 300px;">[
     {
-        &quot;id&quot;: 222,
         &quot;amount_disbursed&quot;: 9007000,
         &quot;outstanding_amount&quot;: 8976000,
         &quot;date_disbursed&quot;: &quot;2018-05-09 10:10:57&quot;,
@@ -314,10 +313,10 @@ response.json()</code></pre></div>
  &nbsp;
                 <input type="text" style="display: none"
                name="account_number"                data-endpoint="POSTapi-outstanding-loans"
-               value="3999786832"
+               value="7828946461"
                data-component="body">
     <br>
-<p>Must be 10 digits. Example: <code>3999786832</code></p>
+<p>Must be 10 digits. Example: <code>7828946461</code></p>
         </div>
         </form>
 

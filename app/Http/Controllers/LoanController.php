@@ -22,7 +22,6 @@ class LoanController extends Controller
      *
      * @response 200 scenario="Found outstanding Loans" [
             {
-            "id": 222,
             "amount_disbursed": 9007000,
             "outstanding_amount": 8976000,
             "date_disbursed": "2018-05-09 10:10:57",

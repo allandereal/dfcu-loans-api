@@ -31,11 +31,11 @@ endpoints:
         name: account_number
         description: 'Must be 10 digits.'
         required: true
-        example: '3999786832'
+        example: '7828946461'
         type: string
         custom: []
     cleanBodyParameters:
-      account_number: '3999786832'
+      account_number: '7828946461'
     fileParameters: []
     responses:
       -
@@ -43,7 +43,6 @@ endpoints:
         content: |-
           [
           {
-          "id": 222,
           "amount_disbursed": 9007000,
           "outstanding_amount": 8976000,
           "date_disbursed": "2018-05-09 10:10:57",
@@ -112,7 +111,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer aVDh1865vEdZa6e4bckf3gP'
+      - 'Bearer 5Dd6vab3P6a4kVc8ZegEh1f'
     controller: null
     method: null
     route: null
