@@ -1,0 +1,3 @@
+ACCOUNT #: 1234567890 => RESPONSE : {"message":"Account Number does not exist in our records","errors":{"account_number":["Account Number does not exist in our records"]}}
+ACCOUNT #: fghjkl => RESPONSE : {"message":"The account number field must be a number. (and 1 more error)","errors":{"account_number":["The account number field must be a number.","The account number field must be 10 digits."]}}
+ACCOUNT #: 8787878888887888 => RESPONSE : {"message":"The account number field must be 10 digits.","errors":{"account_number":["The account number field must be 10 digits."]}}

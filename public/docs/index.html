@@ -124,6 +124,9 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>This endpoint allows you to fetch all outstanding Loans attached to an account number.</p>
 <p>Check that the service is up. If everything is okay, you'll get a 200 OK response.
 Otherwise, the request will fail with an error code such as 400, 422, 500 and a response listing the error message.</p>
+<aside class="info"><b>You can use these test account numbers.</b><br>
+1000000001 => Returns outstanding loans<br>
+1000000002 => Return no outstanding loan</aside>
 
 <span id="example-requests-POSTapi-outstanding-loans">
 <blockquote>Example request:</blockquote>
@@ -136,7 +139,7 @@ Otherwise, the request will fail with an error code such as 400, 422, 500 and a 
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"account_number\": \"8935041046\"
+    \"account_number\": \"4755959177\"
 }"
 </code></pre></div>
 
@@ -152,7 +155,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'account_number' =&gt; '8935041046',
+            'account_number' =&gt; '4755959177',
         ],
     ]
 );
@@ -172,7 +175,7 @@ const headers = {
 };
 
 let body = {
-    "account_number": "8935041046"
+    "account_number": "4755959177"
 };
 
 fetch(url, {
@@ -188,7 +191,7 @@ import json
 
 url = 'http://localhost:8000/api/outstanding-loans'
 payload = {
-    "account_number": "8935041046"
+    "account_number": "4755959177"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -312,10 +315,10 @@ response.json()</code></pre></div>
  &nbsp;
                 <input type="text" style="display: none"
                name="account_number"                data-endpoint="POSTapi-outstanding-loans"
-               value="8935041046"
+               value="4755959177"
                data-component="body">
     <br>
-<p>Must be 10 digits. Example: <code>8935041046</code></p>
+<p>Must be 10 digits. Example: <code>4755959177</code></p>
         </div>
         </form>
 

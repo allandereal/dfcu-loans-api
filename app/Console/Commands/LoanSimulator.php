@@ -37,7 +37,7 @@ class LoanSimulator extends Command
         $adminUser = User::factory()->create();
         $token = $adminUser->createToken('api-simulator-token', ['loans:view'])->plainTextToken;
 
-        $fileName = 'loans-api-'.time().'.txt';
+        $fileName = 'loans-api-simulation-'.time().'.txt';
         $reportFile = fopen(public_path($fileName), 'a');
 
         foreach ($accounts as $account){

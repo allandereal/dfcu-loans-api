@@ -19,6 +19,9 @@ class LoanController extends Controller
      *
      * Check that the service is up. If everything is okay, you'll get a 200 OK response.
      * Otherwise, the request will fail with an error code such as 400, 422, 500 and a response listing the error message.
+     * <aside class="info"><b>You can use these test account numbers.</b><br>
+     * 1000000001 => Returns outstanding loans<br>
+     * 1000000002 => Return no outstanding loan</aside>
      *
      * @response 200 scenario="Found outstanding Loans" [
             {

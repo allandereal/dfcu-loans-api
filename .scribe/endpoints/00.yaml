@@ -16,6 +16,9 @@ endpoints:
 
         Check that the service is up. If everything is okay, you'll get a 200 OK response.
         Otherwise, the request will fail with an error code such as 400, 422, 500 and a response listing the error message.
+        <aside class="info"><b>You can use these test account numbers.</b><br>
+        1000000001 => Returns outstanding loans<br>
+        1000000002 => Return no outstanding loan</aside>
       authenticated: true
       custom: []
     headers:
@@ -31,11 +34,11 @@ endpoints:
         name: account_number
         description: 'Must be 10 digits.'
         required: true
-        example: '8935041046'
+        example: '4755959177'
         type: string
         custom: []
     cleanBodyParameters:
-      account_number: '8935041046'
+      account_number: '4755959177'
     fileParameters: []
     responses:
       -
@@ -110,7 +113,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer fgch4V5akEZdab86veP3D61'
+      - 'Bearer Z6VEvgh8a4D5bc6Pdaf1ke3'
     controller: null
     method: null
     route: null
