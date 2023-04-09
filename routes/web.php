@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')
     ->get('admin/api-performance', [AdminDashboardController::class, 'index'])
     ->name('admin.dashboard');
+Route::middleware('auth')
+    ->get('admin/generate-api-token', [AdminDashboardController::class, 'token'])
+    ->name('admin.api-token');
 
 Route::middleware([
     'auth:sanctum',

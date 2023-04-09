@@ -18,11 +18,12 @@
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
+                <a href="/docs" class="mx-4 dark:text-white border border-gray-400 rounded-lg px-4 py-1">View docs</a>
+                <span class="dark:text-white">{{ auth()->user()->name }}</span>
                 <a href="{{ url('/logout') }}"
                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                >
-                 {{ auth()->user()->name }}   <span class="text-blue-800 hover:text-blue-600 ml-2">Logout</span>
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <span class="text-blue-700 hover:text-blue-500 ml-2">Logout</span>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
@@ -94,8 +95,23 @@
                     </div>
                 @endforeach
             </div>
+
+            <div class="text-center flex space-x-4 pt-6">
+                <button onclick="generateAccessToken()" class="bg-gray-800 text-white px-4 py-1 rounded-lg">Generate Access Token</button>
+                <span id="api-access-token" class="text-green-600"></span>
+            </div>
+
         </div>
     </div>
 </div>
+<script>
+    function generateAccessToken(){
+        fetch('/admin/generate-api-token')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('api-access-token').innerText = data;
+            })
+    }
+</script>
 </body>
 </html>
