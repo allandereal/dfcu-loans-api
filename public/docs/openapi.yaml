@@ -11,7 +11,7 @@ paths:
     post:
       summary: 'Outstanding Loans'
       operationId: outstandingLoans
-      description: "This endpoint allows you to fetch all outstanding Loans attached to an account number.\n\nCheck that the service is up. If everything is okay, you'll get a 200 OK response.\nOtherwise, the request will fail with an error code such as 400, 402, 500 and a response listing the error message."
+      description: "This endpoint allows you to fetch all outstanding Loans attached to an account number.\n\nCheck that the service is up. If everything is okay, you'll get a 200 OK response.\nOtherwise, the request will fail with an error code such as 400, 422, 500 and a response listing the error message."
       parameters:
         -
           in: header
@@ -64,7 +64,7 @@ paths:
                 account_number:
                   type: string
                   description: 'Must be 10 digits.'
-                  example: '4772912647'
+                  example: '8935041046'
               required:
                 - account_number
 tags:

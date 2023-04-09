@@ -18,7 +18,7 @@ class LoanController extends Controller
      * This endpoint allows you to fetch all outstanding Loans attached to an account number.
      *
      * Check that the service is up. If everything is okay, you'll get a 200 OK response.
-     * Otherwise, the request will fail with an error code such as 400, 402, 500 and a response listing the error message.
+     * Otherwise, the request will fail with an error code such as 400, 422, 500 and a response listing the error message.
      *
      * @response 200 scenario="Found outstanding Loans" [
             {
