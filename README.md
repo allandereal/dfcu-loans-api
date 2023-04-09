@@ -31,6 +31,12 @@ Tasks and the respective commands
 9. Start the development server at [http://127.0.0.1:8000](http://127.0.0.1:8000)
 `php artisan serve`
 
+### Running Tests
+
+Copy `.env.testing` file from `.env` and update database parameters to the testing database
+`cp .env.example .env.testing`
+Run `php artisan test`
+
 ### Interfaces
 #### API performance Dashboard  [http://127.0.0.1:8000/dashboard](http://127.0.0.1:8000/dashboard)
 You are required to be authenticated to view this dashboard.
