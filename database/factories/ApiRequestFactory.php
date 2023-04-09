@@ -32,7 +32,7 @@ class ApiRequestFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'status' => 'positive',
-                'type' => 'GET',
+                'type' => 'POST',
             ];
         });
     }
@@ -42,7 +42,7 @@ class ApiRequestFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'status' => 'negative',
-                'type' => 'GET',
+                'type' => 'POST',
             ];
         });
     }
@@ -53,7 +53,7 @@ class ApiRequestFactory extends Factory
             return [
                 'parameters' => json_encode(['account_number' => $this->faker->randomNumber(9)]),
                 'status' => $this->faker->randomElement(['positive', 'negative', 'invalid']),
-                'type' => 'GET',
+                'type' => 'POST',
             ];
         });
     }

@@ -34,7 +34,7 @@ class LoanSimulator extends Command
             $this->error('No account numbers have been provided!');
         }
 
-        $adminUser = User::factory()->admin()->create();
+        $adminUser = User::factory()->create();
         $token = $adminUser->createToken('api-simulator-token', ['loans:view'])->plainTextToken;
 
         $fileName = 'loans-api-'.time().'.txt';
@@ -44,7 +44,7 @@ class LoanSimulator extends Command
             $response = Http::withToken($token)->withHeaders([
                 'Accept' => 'Application/json',
                 'Content-Type' => 'Application/json',
-            ])->get(url('api/outstanding-loans'), [
+            ])->post(url('api/outstanding-loans'), [
                 'account_number' => trim($account)
             ]);
 
