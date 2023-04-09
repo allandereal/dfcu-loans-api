@@ -10,9 +10,11 @@ This API is built using the following languages and tools
 - Frontend: Javascript & CSS (Tailwind CSS >= 3.1)
 
 ### Setup and running the project
-1. clone the repository with the following command
+Tasks and the respective commands
+
+1. Clone the repository  
 `git clone git@github.com:allandereal/dfcu-loans-api.git`
-2. Move into the `dfcu-loans-api` directory with the following command  
+2. Move into the `dfcu-loans-api` directory  
 `cd dfcu-loans-api`
 3. Install composer dependencies  
 `composer install`
@@ -41,14 +43,15 @@ on the [admin dashboard](http://127.0.0.1:8000/dashboard)
 #### Simulating the API
 A command that takes sample account numbers and runs them through the API.
 A text file containing the API endpoint results is saved in the public folder on completion.
-Please use the command `php artisan loan:simulate` to complete this task.
+Please use the command `php artisan loan:simulate` to execute this.
 
 ### Screenshots
 #### Admin dashboard
-Dark Mode  
+
+*Dark Theme*
 ![admin dashboard dark](public/images/admin-dark.png "Admin Dashboard")
 
-Light Theme  
+*Light Theme*  
 ![admin dashboard light](public/images/admin-light.png "Admin Dashboard Light")
 
 #### API Docs
