@@ -24,11 +24,12 @@ Tasks and the respective commands
 `cp .env.example .env`
 6. Generate the application key  
 `php artisan key generate`
-7. Run migrations  
+7. Run migrations (update the database settings in the `.env` file first by setting the database, username and password)  
 `php artisan migrate`
 8. Seed the database if you want to generate test data  
 `php artisan db:seed`
 9. Start the development server at [http://127.0.0.1:8000](http://127.0.0.1:8000)
+`php artisan serve`
 
 ### Interfaces
 #### API performance Dashboard  [http://127.0.0.1:8000/dashboard](http://127.0.0.1:8000/dashboard)
