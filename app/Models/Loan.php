@@ -19,7 +19,7 @@ class Loan extends Model
         'due_date'
     ];
 
-    protected $hidden = ['account_id'];
+    protected $hidden = ['id', 'account_id'];
 
     public function account(): BelongsTo
     {

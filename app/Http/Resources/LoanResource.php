@@ -14,9 +14,6 @@ class LoanResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
-            ...parent::toArray($request),
-            'account_number' => $this->account->number
-        ];
+        return parent::toArray($request);
     }
 }
